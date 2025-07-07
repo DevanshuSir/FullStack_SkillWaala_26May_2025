@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero {
+  background: linear-gradient(to right, #4e54c8, #8f94fb);
+  color: white;
+  padding: 100px 0px;
+}
+
+#about img {
+  max-width: 100%;
+  border-radius: 12px;
+}
+
+#feature i {
+  font-size: 3rem;
+  color: blue;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.5s ease;
+}
+
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+}
+
+.floating-buttons img {
+  width: 100%;
+}
