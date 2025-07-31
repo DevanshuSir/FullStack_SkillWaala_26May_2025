@@ -1,0 +1,12 @@
+[
+  { "studentName": "Devanshu", "studentClass": 12 },
+  { "studentName": "Aman", "studentClass": 11 },
+  {
+    "total": [11, 7, 67, 56],
+    "address": {
+      "city": "Jiapur",
+      "pincode": 45678,
+      "islocated": true
+    }
+  }
+]

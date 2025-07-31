@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Devanshu sir</h1>
+    <button onclick="changeValue()">Change</button>
+
+    <img src="./media/daydev.jpg" alt="" width="400px" />
+    <button onclick="changeImage()">Chnage Image</button>
+
+    <!-- events - click change key submit  -->
+
+    <script>
+      function changeValue() {
+        let a = document.querySelector("h1");
+        a.innerText = "Manny sir";
+        a.style.color = "green";
+      }
+
+      function changeImage() {
+        document.querySelector("img").attributes[0].value =
+          "./media/devday.jpg";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="Time"></h1>
+
+    <script>
+      // dd//mm//yy
+      // hh:mm:ss
+
+      setInterval(() => {
+        let currentDate = new Date();
+        let todayDate = currentDate.getDate();
+        let Months = [
+          "jan",
+          "feb",
+          "march",
+          "april",
+          "may",
+          "june",
+          "july",
+          "aug",
+          "sep",
+          "oct",
+          "nov",
+          "dec",
+        ];
+        let todayMonth = currentDate.getMonth() + 1;
+        //   let MonthName = Months[todayMonth];
+        //   console.log(MonthName);
+        let todayYear = currentDate.getFullYear();
+        let todayHours = currentDate.getHours();
+        let todayMin = currentDate.getMinutes();
+        let todaySec = currentDate.getSeconds();
+
+        console.log(
+          ` Date :- ${todayDate}/${todayMonth}/${todayYear} Time :- ${todayHours}:${todayMin}:${todaySec}`
+        );
+
+        let time = ` Date :- ${todayDate}/${todayMonth}/${todayYear} Time :- ${todayHours}:${todayMin}:${todaySec}`;
+
+        document.getElementById("Time").innerText = time;
+      }, 1000);
+    </script>
+  </body>
+</html>

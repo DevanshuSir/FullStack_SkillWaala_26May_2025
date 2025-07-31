@@ -1,7 +1,8 @@
 {
-  "name": "js",
+  "name": "npm",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +11,10 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "lodash": "^4.17.21",
+    "chalk": "^5.4.1",
+    "cowsay": "^1.6.0",
+    "figlet": "^1.8.2",
+    "password": "^0.1.1",
     "prompt-sync": "^4.2.0"
   }
 }

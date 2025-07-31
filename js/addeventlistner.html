@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      #emoji {
+        background-color: green;
+        border-radius: 100%;
+        padding: 10px;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="heading">Hello class</h1>
+    <button id="btn">Chnage</button>
+
+    <button id="emoji">😍</button>
+
+    <script>
+      document.querySelector("#btn").addEventListener("click", () => {
+        document.querySelector("#heading").innerText = "Devanshu Sir";
+      });
+
+      let emojiBtn = document.querySelector("#emoji");
+
+      emojiBtn.addEventListener("click", () => {
+        emojiBtn.style.backgroundColor = "red";
+        emojiBtn.innerText = "✅";
+      });
+
+      emojiBtn.addEventListener("mouseenter", () => {
+        emojiBtn.innerText = "😂";
+      });
+
+      emojiBtn.addEventListener("mouseleave", () => {
+        emojiBtn.innerText = "🤪";
+      });
+    </script>
+  </body>
+</html>

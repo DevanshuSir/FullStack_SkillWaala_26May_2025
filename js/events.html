@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="heading">Devanshu Sir</h1>
+    <button onclick="handleChnage()">Click</button>
+
+    <select name="" id="car" onchange="handleOptions()">
+      <option value="Bmw">Bmw</option>
+      <option value="Honda">Honda</option>
+      <option value="Mg">Mg</option>
+    </select>
+
+    <h2 id="output"></h2>
+
+    <span>Haeding Color</span>
+    <input
+      type="color"
+      name=""
+      id="colorpicker"
+      onchange="handleColorPicker()"
+    />
+
+    <span>Theme</span>
+    <input type="color" name="" id="theme" onchange="handleTheme()" />
+
+    <script>
+      function handleChnage() {
+        let a = document.getElementById("heading");
+        a.style.color = "red";
+      }
+
+      function handleOptions() {
+        const outputValue = document.querySelector("#car").value;
+        document.querySelector(
+          "#output"
+        ).innerText = `You Select :- ${outputValue}`;
+      }
+
+      function handleColorPicker() {
+        let colorPicker = document.getElementById("colorpicker").value;
+        console.log(colorPicker);
+        document.getElementById("heading").style.color = colorPicker;
+        document.body.style.color = colorPicker;
+      }
+
+      function handleTheme() {
+        let theme = document.querySelector("#theme").value;
+        document.body.style.backgroundColor = theme;
+      }
+    </script>
+  </body>
+</html>

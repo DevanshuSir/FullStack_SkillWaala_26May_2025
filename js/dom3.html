@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="box1">
+      Lorem ipsum dolor sit amet.
+      <div>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate,
+        tenetur!
+      </div>
+    </div>
+
+    <div id="box2">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. At autem fugit
+      aliquid illum quos cum dolorem ex voluptatibus temporibus iusto.
+      <div>Lorem, ipsum dolor sit amet consectetur adipisicing.</div>
+    </div>
+
+    <script>
+      let a = document.querySelector("#box1").innerText;
+      let b = document.querySelector("#box2").innerHTML;
+
+      console.log(a);
+      console.log(b);
+    </script>
+  </body>
+</html>

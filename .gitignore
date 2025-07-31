@@ -1,2 +1,5 @@
 /js/js/node_modules
 /js/js/package-lock.json
+
+/npm/node_modules
+/npm/package-lock.json
