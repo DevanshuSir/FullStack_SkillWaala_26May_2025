@@ -104,3 +104,9 @@
 .delete-btn:hover {
   color: red;
 }
+
+.checkbox{
+  accent-color: orange;
+  width: 20px;
+  height: 20px;
+}
