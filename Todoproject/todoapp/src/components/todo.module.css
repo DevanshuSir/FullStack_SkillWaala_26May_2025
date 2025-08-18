@@ -1,0 +1,106 @@
+.todo_container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+/* Task Summary */
+.task_summary {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 8px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+.task_summary div{
+    background-color: #bbbbbb7d;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.input_section {
+  display: flex;
+  gap: 10px;
+}
+
+
+.input_section input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+
+.input_section button {
+  background-color: rgba(222, 145, 0, 0.809);
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+
+.input_section button:hover {
+  background-color: rgba(206, 134, 0, 0.775);
+}
+
+
+.task_list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+
+.task_list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  background: #bbbbbb7d;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  align-items: center;
+}
+
+
+.task_list li.completed span {
+  text-decoration: line-through;
+  color: gray;
+}
+
+
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+
+.edit-btn,
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+.edit-btn:hover {
+  color: blue;
+}
+
+
+.delete-btn:hover {
+  color: red;
+}
