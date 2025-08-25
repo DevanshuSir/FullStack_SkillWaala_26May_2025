@@ -3,3 +3,10 @@
 
 /npm/node_modules
 /npm/package-lock.json
+
+/reacttailwind/tailwindlearn/package-lock.json
+/Todoproject/todoapp/package-lock.json
+/weather/weatherApp/package-lock.json
+
+/frontendtailwindcss/package-lock.json
+/frontendtailwindcss/node_modules
