@@ -10,3 +10,10 @@
 
 /frontendtailwindcss/package-lock.json
 /frontendtailwindcss/node_modules
+
+
+/shoppingcart/addtocart/package-lock.json
+/shoppingcart/addtocart/node_modules
+
+/redux/reduxtoolkit/package-lock.json
+/redux/reduxtoolkit/node_modules
