@@ -1,5 +1,7 @@
 import React from "react";
 import { FaShoppingCart, FaHeart } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../features/cartSlice";
 
 const products = [
   {
@@ -75,6 +77,9 @@ const products = [
 ];
 
 const Products = () => {
+
+  const dispatch = useDispatch()
+
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
@@ -99,7 +104,7 @@ const Products = () => {
               <p className="text-gray-600 mb-4 flex-1">{product.description}</p>
               <div className="flex items-center justify-between mt-auto">
                 <span className="text-lg font-bold text-blue-600">{product.price}</span>
-                <button className="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition">
+                <button onClick={()=>{dispatch(addToCart(product))}} className="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition">
                   <FaShoppingCart size={18} />
                 </button>
               </div>

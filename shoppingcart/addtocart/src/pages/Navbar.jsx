@@ -1,9 +1,10 @@
 import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="bg-white shadow-md w-full fixed top-0 left-0 z-50">
+    <nav className="bg-gray-900 shadow-md w-full fixed top-0 left-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Left: Logo */}
@@ -12,28 +13,30 @@ const Navbar = () => {
           </div>
           {/* Center: Links */}
           <div className="hidden md:flex space-x-8">
-            <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">
+            <Link to={"/"} className="text-white hover:text-blue-600 font-medium">
               Home
-            </a>
-            <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">
+            </Link>
+            <Link to={"/product"} className="text-white hover:text-blue-600 font-medium">
               Products
-            </a>
-            <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">
+            </Link>
+            <a href="#" className="text-white hover:text-blue-600 font-medium">
               About
             </a>
-            <a href="#" className="text-gray-700 hover:text-blue-600 font-medium">
+            <a href="#" className="text-white hover:text-blue-600 font-medium">
               Contact
             </a>
           </div>
           {/* Right: Cart Icon */}
           <div className="flex items-center">
-            <button className="relative text-gray-700 hover:text-blue-600">
+            <Link to={'/cart'}>
+            <button className="relative text-white hover:text-blue-600">
               <FaShoppingCart size={24} />
               {/* Example badge for cart items */}
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5">
                 6
               </span>
             </button>
+            </Link>
             {/* Mobile menu button */}
             <div className="md:hidden ml-4">
               <button
@@ -60,12 +63,12 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div className="md:hidden hidden" id="mobile-menu">
         <div className="px-2 pt-2 pb-3 space-y-1 bg-white shadow">
-          <a href="#" className="block text-gray-700 hover:text-blue-600 font-medium">
+          <Link to={"/"} className="block text-gray-700 hover:text-blue-600 font-medium">
             Home
-          </a>
-          <a href="#" className="block text-gray-700 hover:text-blue-600 font-medium">
+          </Link>
+          <Link to={"/product"} className="block text-gray-700 hover:text-blue-600 font-medium">
             Products
-          </a>
+          </Link>
           <a href="#" className="block text-gray-700 hover:text-blue-600 font-medium">
             About
           </a>
