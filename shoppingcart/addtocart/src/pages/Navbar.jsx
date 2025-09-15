@@ -1,8 +1,12 @@
 import React from "react";
 import { FaShoppingCart } from "react-icons/fa";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+
+  const cartItems = useSelector((state)=>state.cartItem.cart)
+
   return (
     <nav className="bg-gray-900 shadow-md w-full fixed top-0 left-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,7 +37,7 @@ const Navbar = () => {
               <FaShoppingCart size={24} />
               {/* Example badge for cart items */}
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5">
-                6
+               {cartItems.length}
               </span>
             </button>
             </Link>
