@@ -17,3 +17,15 @@
 
 /redux/reduxtoolkit/package-lock.json
 /redux/reduxtoolkit/node_modules
+
+/expressjs/package-lock.json
+/expressjs/node_modules
+
+/frontendbackend/frontend/package-lock.json
+/frontendbackend/frontend/node_modules
+
+/frontendbackend/expressbackend/package-lock.json
+/frontendbackend/expressbackend/node_modules
+
+/nodejs/package-lock.json
+/nodejs/node_modules

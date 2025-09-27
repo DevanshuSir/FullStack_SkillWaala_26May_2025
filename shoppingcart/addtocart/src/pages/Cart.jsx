@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { MdDelete } from "react-icons/md";
-import { deleteCartItem } from "../features/cartSlice";
+import { cartTotal, DecrementQuantity, deleteCartItem, IncrementQuantity } from "../features/cartSlice";
 import { Link } from "react-router-dom";
 
 
@@ -12,6 +12,10 @@ const Cart = () => {
 
  const cartData =  useSelector((state)=>state.cartItem.cart)
  const dispatch = useDispatch()
+
+ const productAll = useSelector((state)=>state.cartItem)
+
+ dispatch(cartTotal())
 
  
   return (
@@ -45,7 +49,7 @@ const Cart = () => {
                     <div className="flex items-center gap-2">
                       <button
                         className="bg-gray-200 px-2 py-1 rounded hover:bg-gray-300"
-                        
+                        onClick={()=>{dispatch(DecrementQuantity(item))}}
                         aria-label="Decrement"
                       >
                         -
@@ -53,7 +57,7 @@ const Cart = () => {
                       <span className="px-2 font-medium">{item.qunatity}</span>
                       <button
                         className="bg-gray-200 px-2 py-1 rounded hover:bg-gray-300"
-                       
+                        onClick={()=>{dispatch(IncrementQuantity(item))}}
                         aria-label="Increment"
                       >
                         +
@@ -70,8 +74,10 @@ const Cart = () => {
             ))}
             {
               cartData.length===0?"":<div className="flex justify-end items-center mt-8">
+                <span className="text-xl font-bold text-gray-800 mr-2">TotalProducts:</span>
+              <span className="text-2xl font-bold text-green-600">{productAll.TotalQuantity}/</span>
               <span className="text-xl font-bold text-gray-800 mr-2">Total:</span>
-              <span className="text-2xl font-bold text-blue-600">₹100000</span>
+              <span className="text-2xl font-bold text-blue-600">₹{productAll.TotalPrice}</span>
             </div>
             }
             
