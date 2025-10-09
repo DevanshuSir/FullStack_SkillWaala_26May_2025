@@ -13,7 +13,7 @@ const Update = () => {
     useEffect(()=>{
         fetch(`/api/updatedata/${id}`).then((res)=>{return res.json()}).then((result)=>{
         console.log(result)
-        setUser(result.data.UserName)
+        setUser(result.data.Username)
     })
 
     },[])

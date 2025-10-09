@@ -38,7 +38,7 @@ const Form = () => {
       method:"DELETE"
     }).then((res)=>{return res.json()}).then((result)=>{
       console.log(result)
-      setData(result.data)
+      // setData(result.data)
     })
   }
 
@@ -62,9 +62,9 @@ const Form = () => {
       <button onClick={handleData}>Show User Data</button>
       {data.map((item,index) => (
         <ul>
-          <span>{item.UserName}</span>
-          <button onClick={()=>{handleDelete(index)}}>Delete</button>
-          <Link to={`/update/${index}`}><button>Update</button></Link> 
+          <span>{item.Username}</span>
+          <button onClick={()=>{handleDelete(item._id)}}>Delete</button>
+          <Link to={`/update/${item._id}`}><button>Update</button></Link> 
         </ul>
       ))}
     </div>

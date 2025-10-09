@@ -29,3 +29,9 @@
 
 /nodejs/package-lock.json
 /nodejs/node_modules
+
+/Project_class/backend/package-lock.json
+/Project_class/backend/node_modules
+
+/Project_class/frontend_shopping/package-lock.json
+/Project_class/frontend_shopping/node_modules
