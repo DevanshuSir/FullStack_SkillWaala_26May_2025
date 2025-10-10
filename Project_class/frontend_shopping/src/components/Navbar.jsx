@@ -2,15 +2,20 @@ import React, { useState } from 'react'
 import LogoShopping from "../assets/logo.png"
 import { FaSearch , FaHome ,FaCartPlus ,FaRegUserCircle , FaBars ,FaTimes } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { GrContact } from "react-icons/gr";
 
 const Navbar = () => {
 
     const [isOpen,setIsOpen] = useState(false)
 
+    function toggleMenu (){
+      setIsOpen(!isOpen)
+    }
+
   return (
     <nav className='bg-gradient-to-r from-purple-100 via-white to-white shadow-md fixed top-0 left-0 right-0 z-50'>
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='flex items-center justify-between h-16'>
+        <div className='flex items-center justify-between h-16 relative'>
             {/* Logo */} 
             <div>
                 <img src={LogoShopping} alt="" className='h-28 w-auto'/>
@@ -30,6 +35,9 @@ const Navbar = () => {
                 <Link className='text-gray-700 hover:text-purple-600'>
                     <FaHome className='text-xl' />
                 </Link>
+                   <Link className='text-gray-700 hover:text-purple-600'>
+                <GrContact className='text-xl'/>
+                </Link>
                 <Link className='text-gray-700 hover:text-purple-600'>
                 <FaCartPlus className='text-xl'/>
                 </Link>
@@ -37,11 +45,13 @@ const Navbar = () => {
                 <FaRegUserCircle className='text-xl'/>
                 </Link>
 
+
+
             </div>
             {/* Toggle */}
 
             <div className='md:hidden'>
-                <button className='text-2xl text-purple-600'>
+                <button onClick={toggleMenu} className='text-2xl text-purple-600'>
                     {isOpen? <FaTimes/>:<FaBars/>}
                 </button>
             </div>
@@ -49,8 +59,9 @@ const Navbar = () => {
             {/* Mobile-View */}
 
          {
-            isOpen && <div className='md:hidden bg-white px-4 pt-2 pb-4 space-y-2 shadow-md'>
+            isOpen && <div className='md:hidden bg-white px-10 pt-2 pb-4 space-y-2 shadow-2xl absolute top-16 right-0 w-full'>
                 <Link className='block text-gray-800 hover:text-purple-600'>Home</Link>
+                     <Link className='block text-gray-800 hover:text-purple-600'>Contact</Link>
                 <Link className='block text-gray-800 hover:text-purple-600'>Cart</Link>
                 <Link className='block text-gray-800 hover:text-purple-600'>User</Link>
             </div>
