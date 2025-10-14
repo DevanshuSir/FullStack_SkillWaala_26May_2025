@@ -41,7 +41,7 @@ const Navbar = () => {
                 <Link className='text-gray-700 hover:text-purple-600'>
                 <FaCartPlus className='text-xl'/>
                 </Link>
-                <Link className='text-gray-700 hover:text-purple-600'>
+                <Link to={"/login"} className='text-gray-700 hover:text-purple-600'>
                 <FaRegUserCircle className='text-xl'/>
                 </Link>
 
@@ -63,7 +63,7 @@ const Navbar = () => {
                 <Link className='block text-gray-800 hover:text-purple-600'>Home</Link>
                      <Link className='block text-gray-800 hover:text-purple-600'>Contact</Link>
                 <Link className='block text-gray-800 hover:text-purple-600'>Cart</Link>
-                <Link className='block text-gray-800 hover:text-purple-600'>User</Link>
+                <Link to={"/login"}  className='block text-gray-800 hover:text-purple-600'>User</Link>
             </div>
          }   
 
