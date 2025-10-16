@@ -60,10 +60,17 @@ const Navbar = () => {
 
          {
             isOpen && <div className='md:hidden bg-white px-10 pt-2 pb-4 space-y-2 shadow-2xl absolute top-16 right-0 w-full'>
+<<<<<<< HEAD
                 <Link to={"/"} className='block text-gray-800 hover:text-purple-600'>Home</Link>
                      <Link to={"/query"} className='block text-gray-800 hover:text-purple-600'>Contact</Link>
                 <Link to={"/cart"} className='block text-gray-800 hover:text-purple-600'>Cart</Link>
                 <Link to={"/login"} className='block text-gray-800 hover:text-purple-600'>User</Link>
+=======
+                <Link className='block text-gray-800 hover:text-purple-600'>Home</Link>
+                     <Link className='block text-gray-800 hover:text-purple-600'>Contact</Link>
+                <Link className='block text-gray-800 hover:text-purple-600'>Cart</Link>
+                <Link to={"/login"}  className='block text-gray-800 hover:text-purple-600'>User</Link>
+>>>>>>> 43333e54a99acc15637f21ff51eac5075be3fa47
             </div>
          }   
 
