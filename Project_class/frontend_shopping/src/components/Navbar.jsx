@@ -32,16 +32,16 @@ const Navbar = () => {
             </div>
             {/* Menu */}
             <div className='hidden md:flex space-x-6 items-center'>
-                <Link className='text-gray-700 hover:text-purple-600'>
+                <Link to={"/"} className='text-gray-700 hover:text-purple-600'>
                     <FaHome className='text-xl' />
                 </Link>
-                   <Link className='text-gray-700 hover:text-purple-600'>
+                   <Link to={"/query"} className='text-gray-700 hover:text-purple-600'>
                 <GrContact className='text-xl'/>
                 </Link>
-                <Link className='text-gray-700 hover:text-purple-600'>
+                <Link to={"/cart"} className='text-gray-700 hover:text-purple-600'>
                 <FaCartPlus className='text-xl'/>
                 </Link>
-                <Link className='text-gray-700 hover:text-purple-600'>
+                <Link to={"/login"} className='text-gray-700 hover:text-purple-600'>
                 <FaRegUserCircle className='text-xl'/>
                 </Link>
 
@@ -60,10 +60,10 @@ const Navbar = () => {
 
          {
             isOpen && <div className='md:hidden bg-white px-10 pt-2 pb-4 space-y-2 shadow-2xl absolute top-16 right-0 w-full'>
-                <Link className='block text-gray-800 hover:text-purple-600'>Home</Link>
-                     <Link className='block text-gray-800 hover:text-purple-600'>Contact</Link>
-                <Link className='block text-gray-800 hover:text-purple-600'>Cart</Link>
-                <Link className='block text-gray-800 hover:text-purple-600'>User</Link>
+                <Link to={"/"} className='block text-gray-800 hover:text-purple-600'>Home</Link>
+                     <Link to={"/query"} className='block text-gray-800 hover:text-purple-600'>Contact</Link>
+                <Link to={"/cart"} className='block text-gray-800 hover:text-purple-600'>Cart</Link>
+                <Link to={"/login"} className='block text-gray-800 hover:text-purple-600'>User</Link>
             </div>
          }   
 
