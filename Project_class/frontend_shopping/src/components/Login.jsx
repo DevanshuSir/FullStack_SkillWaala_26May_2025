@@ -57,19 +57,15 @@ const Login = () => {
         </form>
         <p className="text-sm text-center text-gray-600 mt-5">
           Don't have an account
-<<<<<<< HEAD
+
           <Link to={"/reg"} className="text-green-600 hover:underline"> Register</Link>
-=======
-          <Link className="text-green-600 hover:underline"> Register</Link>
->>>>>>> 43333e54a99acc15637f21ff51eac5075be3fa47
+
         </p>
       </div>
     </div>
   );
 };
 
-<<<<<<< HEAD
+
 export default Login;
-=======
-export default Login;
->>>>>>> 43333e54a99acc15637f21ff51eac5075be3fa47
+
