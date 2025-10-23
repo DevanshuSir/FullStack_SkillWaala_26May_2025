@@ -4,10 +4,11 @@ const dotenv = require("dotenv")
 dotenv.config()
 const apiRoute = require("./router/api")
 const connectDB = require("./config/db")
+const cors = require("cors")
 
 connectDB()
 
-
+app.use(cors())
 app.use(express.json())
 app.use("/api",apiRoute)
 let port = process.env.PORT || 5000

@@ -1,6 +1,8 @@
 import React from 'react'
 import Slidebar from './Slidebar'
 import { Link } from 'react-router-dom'
+import { FaEdit } from "react-icons/fa";
+import { AiFillDelete } from "react-icons/ai";
 
 const AdminProducts = () => {
   return (
@@ -12,6 +14,29 @@ const AdminProducts = () => {
                    <button className='flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 '>Add Products</button>
                 </Link>
              
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-5">
+          {[1, 2, 3, 4, 5].map(() => (
+            <div className="bg-white rounded-xl shadow p-4 hover:shadow-xl ">
+              <img
+                src="https://img.freepik.com/free-psd/close-up-delicious-apple_23-2151868338.jpg?semt=ais_hybrid&w=740&q=80"
+                alt=""
+                className="w-full h-40 object-contain rounded-md mb-4 border"
+              />
+              <h3 className="text-xl font-semibold text-gray-700">Apple</h3>
+              <p className="text-sm text-gray-600">Category :- Freash</p>
+              <p className="text-green-600 font-bold mt-1">54$</p>
+              <p className="text-blue-700 font-semibold mt-1">In-Stock</p>
+              <div className="flex flex-col sm:flex-row justify-between mt-4">
+                <Link to={"/admin/edit-product"} className="flex items-center text-xl gap-3 text-blue-500 hover:text-blue-800">
+                  <FaEdit />
+                </Link>
+                <Link className="flex items-center text-xl gap-3 text-red-500 hover:text-red-800">
+                  <AiFillDelete />
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
            
             </div>
     </div>

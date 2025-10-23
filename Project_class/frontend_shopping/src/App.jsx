@@ -10,6 +10,9 @@ import Reg from './components/Reg'
 import AdminDashboard from './admin/AdminDashboard'
 import AdminProducts from './admin/AdminProducts'
 import AddProducts from './admin/AddProducts'
+import AdminQuery from './admin/AdminQuery'
+import EditProducts from './admin/EditProducts'
+import QueryReply from './admin/QueryReply'
 
 
 
@@ -29,6 +32,10 @@ const App = () => {
         <Route path='/admin/dashboard' element={<AdminDashboard/>}/>
         <Route path='/admin/adminproduct' element={<AdminProducts/>}/>
         <Route path='/admin/add-products' element={<AddProducts/>}/>
+        <Route path='/admin/adminproduct' element={<AdminProducts/>}/>
+        <Route path='/admin/edit-product' element={<EditProducts/>}/>
+        <Route path='/admin/adminquery' element={<AdminQuery/>}/>
+        <Route path='/admin/queryreply' element={<QueryReply/>}/>
       </Routes>
       <Footer/>
       </BrowserRouter>

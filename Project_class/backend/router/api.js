@@ -1,14 +1,13 @@
 const apiRoutes = require("express").Router()
+const userController =  require("../controller/user")
 
 
 apiRoutes.get("/",(req,res)=>{
     res.send("Hello Backend...")
 })
 
-apiRoutes.post("/data",(req,res)=>{
-    console.log(req.body)
-    res.send("Data get...")
-})
+
+apiRoutes.post("/regdata",userController.regDataController)
 
 
 module.exports = apiRoutes
