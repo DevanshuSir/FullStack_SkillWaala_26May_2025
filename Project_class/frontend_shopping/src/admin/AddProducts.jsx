@@ -1,9 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Slidebar from './Slidebar'
 import { useNavigate } from 'react-router-dom'
+import {toast} from "react-hot-toast"
 
 const AddProducts = () => {
     const navigate = useNavigate()
+   const [product,setProduct] = useState({Pname:"",Price:"",Cat:""})
+
+  async function handleForm(e){
+    e.preventDefault()
+    try {
+     const response = await fetch("/api/addadminproduct",{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify(product)
+      })
+      const record = await response.json()
+      if(response.ok){
+        toast.success(record.message)
+        navigate("/admin/adminproduct")
+      }else{
+        toast.error(record.message)
+      }
+    } catch (error) {
+      toast.error(error)
+    }
+   }
+
+   function handleChange(e){
+    setProduct({...product,[e.target.name]:e.target.value})
+   }
+
   return (
     <div className='flex mt-16'>
         <Slidebar/>
@@ -12,27 +39,37 @@ const AddProducts = () => {
               <button className='bg-gray-200 px-4 py-2 rounded hover:bg-gray-300' onClick={()=>{navigate("/admin/adminproduct")}}>Back</button>
               <form action=""
               className='bg-white shadow-md rounded-xl p-6 max-w-3xl mx-auto space-y-6'
+              onSubmit={handleForm}
               >
                 <label className='block text-gray-700 font-medium mb-1' htmlFor="">Product Name</label>
-                <input type="text" name="" id="" className='w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-600' />
+                <input type="text" 
+                value={product.Pname}
+                onChange={handleChange}
+                name="Pname" id="" className='w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-600' />
 
                 <label htmlFor="" className='block text-gray-700 font-medium mb-1'>Price ₹</label>
-                <input type="number" name="" id="" 
+                <input type="number" 
+                value={product.Price}
+                onChange={handleChange}
+                name="Price" id="" 
                 className='w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-600'
                 />
 
                 <label htmlFor="" className='block text-gray-700 font-medium mb-1'>Categorys</label>
-                <select name="" id=""
+                <select 
+                value={product.Cat}
+                onChange={handleChange}
+                name="Cat" id=""
                 className='w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-600'
                 >
                     <option value="">---Select---</option>
-                    <option value="">Cafe</option>
-                    <option value="">Home</option>
-                    <option value="">Toys</option>
-                    <option value="">Freash</option>
-                    <option value="">Electronics</option>
-                    <option value="">Mobile</option>
-                    <option value="">Beauty</option>
+                    <option value="cafe">Cafe</option>
+                    <option value="home">Home</option>
+                    <option value="toys">Toys</option>
+                    <option value="freash">Freash</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="mobile">Mobile</option>
+                    <option value="beauty">Beauty</option>
                 </select>
 
                 <label className='block text-gray-700 font-medium mb-1' htmlFor="">Product Image</label>

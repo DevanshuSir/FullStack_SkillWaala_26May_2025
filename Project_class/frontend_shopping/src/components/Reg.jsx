@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate , Link } from 'react-router-dom';
 import { FaEye , FaEyeSlash } from "react-icons/fa";
 import { IoIosCloseCircle } from "react-icons/io";
+import toast from 'react-hot-toast';
 
 const Reg = () => {
 
@@ -18,8 +19,15 @@ const Reg = () => {
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify(form)
       })
+      const result = await response.json()
+      if(response.ok){
+        toast.success(result.message)
+        navigate("/login")
+      }else{
+        toast.error(result.message)
+      }
     } catch (error) {
-      
+      toast.error(error)
     }
   }
 

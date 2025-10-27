@@ -1,10 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Slidebar from './Slidebar'
 import { Link } from 'react-router-dom'
 import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
+import toast from 'react-hot-toast';
 
 const AdminProducts = () => {
+
+
+  const [product,setProduct] = useState([])
+
+  async function getAllProducts(){
+    try {
+      const response = await fetch("/api/getproduct")
+      const record = await response.json()
+      if(response.ok){
+        setProduct(record.data)
+      }else{
+        toast.error(record.massage)
+      }
+      
+    } catch (error) {
+      toast.error(error)
+    }
+  }
+
+  useEffect(()=>{
+    getAllProducts()
+  },[])
+
+  
+
   return (
     <div className='flex mt-16'>
         <Slidebar/>
@@ -15,16 +41,17 @@ const AdminProducts = () => {
                 </Link>
              
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-5">
-          {[1, 2, 3, 4, 5].map(() => (
-            <div className="bg-white rounded-xl shadow p-4 hover:shadow-xl ">
+          {product.map((item,index) => (
+            <div key={index} className="bg-white rounded-xl shadow p-4 hover:shadow-xl ">
               <img
                 src="https://img.freepik.com/free-psd/close-up-delicious-apple_23-2151868338.jpg?semt=ais_hybrid&w=740&q=80"
                 alt=""
                 className="w-full h-40 object-contain rounded-md mb-4 border"
               />
-              <h3 className="text-xl font-semibold text-gray-700">Apple</h3>
-              <p className="text-sm text-gray-600">Category :- Freash</p>
-              <p className="text-green-600 font-bold mt-1">54$</p>
+              <h3 className="text-xl font-semibold text-gray-700">{item.productName}</h3>
+              <p className="text-sm text-gray-600">Category :- {item.productCategory
+}</p>
+              <p className="text-green-600 font-bold mt-1">{item.productPrice} ₹</p>
               <p className="text-blue-700 font-semibold mt-1">In-Stock</p>
               <div className="flex flex-col sm:flex-row justify-between mt-4">
                 <Link to={"/admin/edit-product"} className="flex items-center text-xl gap-3 text-blue-500 hover:text-blue-800">
