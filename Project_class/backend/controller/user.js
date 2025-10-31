@@ -1,5 +1,7 @@
 const userCollaction = require("../models/user");
 const bcrypt = require("bcrypt")
+const productCollection = require("../models/product")
+const queryCollection = require("../models/query")
 
 const regDataController = async (req, res) => {
   try {
@@ -53,7 +55,36 @@ const loginDataController = async(req,res)=>{
  
 }
 
+const userProductController = async(req,res)=>{
+  try {
+    const record = await productCollection.find({productStatus:"In-Stock"})
+    res.status(200).json({data:record})
+  } catch (error) {
+     res.status(500).json({message:"Internal server error."})
+  }
+}
+
+
+const userQueryController = async(req,res)=>{
+  try {
+    const {userName,userEmail,userQuery} = req.body
+    console.log(req.body)
+    const record = new queryCollection({
+      Name:userName,
+    Email:userEmail,
+    Query:userQuery,
+    })
+   await record.save()
+   res.status(200).json({message:"Successfully submit your query."})
+  } catch (error) {
+    res.status(500).json({message:"Internal server error."})
+  }
+  
+}
+
 module.exports = {
   regDataController,
-  loginDataController
+  loginDataController,
+  userProductController,
+  userQueryController
 };

@@ -14,6 +14,7 @@ const AdminProducts = () => {
     try {
       const response = await fetch("/api/getproduct")
       const record = await response.json()
+
       if(response.ok){
         setProduct(record.data)
       }else{
@@ -28,6 +29,23 @@ const AdminProducts = () => {
   useEffect(()=>{
     getAllProducts()
   },[])
+
+  async function handleDelete(id){
+    try {
+     const response = await fetch(`/api/productdelete/${id}`,{
+        method:"DELETE"
+      })
+      const result = await response.json()
+      if(response.ok){
+          toast.success(result.message)
+          getAllProducts()
+      }else{
+        toast.error(result.message)
+      }
+    } catch (error) {
+      toast.error(error)
+    }
+  }
 
   
 
@@ -44,7 +62,7 @@ const AdminProducts = () => {
           {product.map((item,index) => (
             <div key={index} className="bg-white rounded-xl shadow p-4 hover:shadow-xl ">
               <img
-                src="https://img.freepik.com/free-psd/close-up-delicious-apple_23-2151868338.jpg?semt=ais_hybrid&w=740&q=80"
+                src={`/uploads/${item.productImage}`}
                 alt=""
                 className="w-full h-40 object-contain rounded-md mb-4 border"
               />
@@ -52,12 +70,15 @@ const AdminProducts = () => {
               <p className="text-sm text-gray-600">Category :- {item.productCategory
 }</p>
               <p className="text-green-600 font-bold mt-1">{item.productPrice} ₹</p>
-              <p className="text-blue-700 font-semibold mt-1">In-Stock</p>
+              {
+                item.productStatus === "In-Stock" ?  <p className="text-blue-700 font-semibold mt-1">{item.productStatus}</p>:<p className="text-red-500 font-semibold mt-1">{item.productStatus}</p>
+              }
+             
               <div className="flex flex-col sm:flex-row justify-between mt-4">
-                <Link to={"/admin/edit-product"} className="flex items-center text-xl gap-3 text-blue-500 hover:text-blue-800">
+                <Link to={`/admin/edit-product/${item._id}`} className="flex items-center text-xl gap-3 text-blue-500 hover:text-blue-800">
                   <FaEdit />
                 </Link>
-                <Link className="flex items-center text-xl gap-3 text-red-500 hover:text-red-800">
+                <Link onClick={()=>{handleDelete(item._id)}} className="flex items-center text-xl gap-3 text-red-500 hover:text-red-800">
                   <AiFillDelete />
                 </Link>
               </div>
